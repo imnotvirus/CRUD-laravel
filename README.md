@@ -7,3 +7,5 @@
 -   php artisan migrate
 -   php artisan key:generate
 
+projeto feito no curso "CRUD COM LARAVEL" do Webdesign em Foco
+<a href="https://www.youtube.com/playlist?list=PLbnAsJ6zlidsbjXqTWQhbnKibzl69LQar">clique aqui</a> para ser redirecionado a playlist do curso
