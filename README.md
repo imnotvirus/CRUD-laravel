@@ -1,5 +1,8 @@
 ## Um CRUD feito em laravel para aprender as funcionalidades do framework php
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1c5daf804ddedf87aa2ab4867f010c616c007d10
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
