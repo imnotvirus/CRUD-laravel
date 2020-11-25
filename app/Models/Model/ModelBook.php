@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ModelBook extends Model
 {
     protected $table = 'books';
-
+    protected $fillable = ['title', 'id_user', 'pages', 'price'];
 
     public function relUsers()
     {
