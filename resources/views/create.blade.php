@@ -1,6 +1,6 @@
 @extends('templates.template')
 @section('content')
-    <h1 class="text-center">Cadastro de livros</h1>
+    <h1 class="text-center">@if (isset($book))Editar livro @else Cadastrar livro @endif</h1>
     <hr>
     <div class="col-8 m-auto">
 
@@ -11,19 +11,23 @@
                     @endforeach
                 </div>
             @endif
-
-        <form name="formCad" id="formCad" action="{{url("books")}}" method="post">
+        @if (isset($book))
+            <form name="formEdit" id="formEdit" action="{{url("books/$book->id")}}" method="post">
+                @method('PUT')
+                @else
+                    <form name="formCad" id="formCad" action="{{url("books")}}" method="post">
+        @endif
             @csrf
-            <input class="form-control" type="text" name="title" id="title" placeholder="Titulo" > <br>
+                    <input class="form-control" type="text" name="title" id="title" value="{{$book->title ?? ''}}" placeholder="Titulo" > <br>
             <select class="form-control" name="id_user" id="id_user" >
-                <option value="">Autor</option>
+                <option value="{{$book->relUsers->id ?? ''}}">{{$book->relUsers->name ?? 'Autor'}}</option>
                 @foreach ($users as $user)
             <option value="{{$user->id}}">{{$user->name}}</option>
                 @endforeach
             </select> <br>
-            <input class="form-control" type="text" name="pages" id="pages" placeholder="Paginas" > <br>
-            <input class="form-control" type="text" name="price" id="price" placeholder="Preço" > <br>
-            <input class="btn btn-primary" type="submit" value="Cadastra">
+            <input class="form-control" type="text" name="pages" id="pages" placeholder="Paginas" value="{{$book->pages ?? ''}}" > <br>
+            <input class="form-control" type="text" name="price" id="price" placeholder="Preço" value="{{$book->price ?? ''}}" > <br>
+            <input class="btn btn-primary" type="submit" value="@if (isset($book))Editar @else Cadastrar @endif">
         </form>
 
     </div>
