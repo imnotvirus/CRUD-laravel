@@ -27,8 +27,10 @@
             </select> <br>
             <input class="form-control" type="text" name="pages" id="pages" placeholder="Paginas" value="{{$book->pages ?? ''}}" > <br>
             <input class="form-control" type="text" name="price" id="price" placeholder="Preço" value="{{$book->price ?? ''}}" > <br>
-            <input class="btn btn-primary" type="submit" value="@if (isset($book))Editar @else Cadastrar @endif">
+            <input class="btn btn-success" type="submit" value="@if (isset($book))Editar @else Cadastrar @endif">
+            <a href="{{url("books")}}">
+                <button class="btn btn-danger">voltar</button>
+            </a>
         </form>
-
     </div>
 @endsection

@@ -12,5 +12,8 @@
         preço:      {{$book->price}} <br>
         Autor:      {{$user->name}} <br>
         E-mail:     {{$user->email}} <br>
+        <a href="{{url("books")}}">
+            <button class="btn btn-success">voltar</button>
+        </a>
     </div>
 @endsection
