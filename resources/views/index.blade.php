@@ -7,6 +7,7 @@
             <button class="btn btn-success">Cadastrar</button>
         </a>
     </div>
+    @csrf
     <div class="col-8 m-auto">
         <table class="table text-center">
             <thead>
@@ -35,7 +36,7 @@
                             <a href="{{url("books/$books->id/edit")}}">
                                 <button class="btn btn-primary">Editar</button>
                             </a>
-                            <a href="">
+                            <a href="{{url("books/$books->id")}}" class="js-del">
                                 <button class="btn btn-danger">Deletar</button>
                             </a>
                         </td>
