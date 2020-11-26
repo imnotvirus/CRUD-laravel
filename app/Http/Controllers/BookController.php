@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\BookRequest;
 use App\Models\Model\ModelBook;
 use App\Models\User;
 
@@ -30,7 +30,7 @@ class BookController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
         $cad = $this->objBook->create([
             'title' => $request->title,
@@ -54,7 +54,7 @@ class BookController extends Controller
         //
     }
 
-    public function update(Request $request, $id)
+    public function update(BookRequest $request, $id)
     {
         //
     }

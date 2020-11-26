@@ -4,17 +4,25 @@
     <hr>
     <div class="col-8 m-auto">
 
+            @if (isset($errors)&& count($errors)>0)
+                <div class="text-center mt-4 mb-4 p-2 alert-danger">
+                    @foreach ($errors->all() as $erro)
+                        {{$erro}} <br>
+                    @endforeach
+                </div>
+            @endif
+
         <form name="formCad" id="formCad" action="{{url("books")}}" method="post">
             @csrf
-            <input class="form-control" type="text" name="title" id="title" placeholder="Titulo"> <br>
-            <select class="form-control" name="id_user" id="id_user">
+            <input class="form-control" type="text" name="title" id="title" placeholder="Titulo" > <br>
+            <select class="form-control" name="id_user" id="id_user" >
                 <option value="">Autor</option>
                 @foreach ($users as $user)
             <option value="{{$user->id}}">{{$user->name}}</option>
                 @endforeach
             </select> <br>
-            <input class="form-control" type="text" name="pages" id="pages" placeholder="Paginas"> <br>
-            <input class="form-control" type="text" name="price" id="price" placeholder="Preço"> <br>
+            <input class="form-control" type="text" name="pages" id="pages" placeholder="Paginas" > <br>
+            <input class="form-control" type="text" name="price" id="price" placeholder="Preço" > <br>
             <input class="btn btn-primary" type="submit" value="Cadastra">
         </form>
 
