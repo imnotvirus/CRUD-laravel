@@ -9,8 +9,8 @@
     </div>
     @csrf
     <div class="col-8 m-auto">
-        <table class="table text-center">
-            <thead>
+        <table class="table text-center table-striped">
+            <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Titluo</th>
@@ -42,8 +42,8 @@
                         </td>
                     </tr>
                 @endforeach
-
             </tbody>
         </table>
+        {{$book->links()}}
     </div>
 @endsection
