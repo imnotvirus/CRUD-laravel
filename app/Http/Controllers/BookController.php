@@ -51,14 +51,14 @@ class BookController extends Controller
 
     public function edit($id)
     {
-        $book= $this->objBook->find($id);
-        $users= $this->objUser->all();
+        $book = $this->objBook->find($id);
+        $users = $this->objUser->all();
         return view('create', compact('book', 'users'));
     }
 
     public function update(BookRequest $request, $id)
     {
-        $this->objBook->where(['id'=>$id])->update([
+        $this->objBook->where(['id' => $id])->update([
             'title' => $request->title,
             'pages' => $request->pages,
             'price' => $request->price,
@@ -70,7 +70,7 @@ class BookController extends Controller
 
     public function destroy($id)
     {
-        $del=$this->objBook->destroy($id);
-        return($del)?"sim":"não";
+        $del = $this->objBook->destroy($id);
+        return ($del) ? "sim" : "não";
     }
 }
