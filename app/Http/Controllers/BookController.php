@@ -19,7 +19,7 @@ class BookController extends Controller
 
     public function index()
     {
-       // $book = $this->objBook->paginate(10);
+        $book = $this->objBook->paginate(10);
         return view('index', compact('book'));
     }
 
