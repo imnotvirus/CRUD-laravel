@@ -21,16 +21,17 @@
                     <input class="form-control" type="text" name="title" id="title" value="{{$book->title ?? ''}}" placeholder="Titulo" > <br>
             <select class="form-control" name="id_user" id="id_user" >
                 <option value="{{$book->relUsers->id ?? ''}}">{{$book->relUsers->name ?? 'Autor'}}</option>
-                @foreach ($users as $user)
+
+                @foreach ($users->sortBy('name') as $user)
             <option value="{{$user->id}}">{{$user->name}}</option>
                 @endforeach
             </select> <br>
             <input class="form-control" type="text" name="pages" id="pages" placeholder="Paginas" value="{{$book->pages ?? ''}}" > <br>
             <input class="form-control" type="text" name="price" id="price" placeholder="Preço" value="{{$book->price ?? ''}}" > <br>
             <input class="btn btn-success" type="submit" value="@if (isset($book))Editar @else Cadastrar @endif">
-            <a href="{{url("books")}}">
-                <button class="btn btn-danger">voltar</button>
-            </a>
         </form>
+        <a href="{{url("books")}}">
+            <button class="btn btn-danger mt-2" >voltar</button>
+        </a>
     </div>
 @endsection
