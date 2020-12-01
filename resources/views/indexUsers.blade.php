@@ -1,6 +1,6 @@
 @extends('templates.template');
 @section('content')
-    <h1 class="text-center">Usuarios</h1>
+    <h1 class="text-center">Escritores</h1>
     <hr>
     <div class="text-center mt-3 mb-4">
         <a href="{{ url('user/create') }}">

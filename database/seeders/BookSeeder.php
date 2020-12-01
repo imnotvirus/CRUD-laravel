@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Model\ModelBook;
+use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 class BookSeeder extends Seeder
 {
     /**
@@ -11,20 +13,17 @@ class BookSeeder extends Seeder
      *
      * @return void
      */
-    public function run(ModelBook $book)
+    public function run()
     {
-        $book->create([
-            'title' => 'Senhor dos aneis',
-            'pages' => '100',
-            'price' => '150.97',
-            'id_user' => '1'
-        ]);
-        $book->create([
-            'title' => 'Oticas',
-            'pages' => '120',
-            'price' => '50.97',
-            'id_user' => '2'
-        ]);
+        $faker = Faker::create();
+        foreach (range(1, 100) as $index) {
+            DB::table('books')->insert([
+                'title' => $faker->sentence,
+                'pages' => rand(100, 200),
+                'price' => rand(100, 200),
+                'id_user' => rand(1, 100)
+            ]);
+        }
 
     }
 }
