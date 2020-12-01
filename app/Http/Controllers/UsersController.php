@@ -17,7 +17,7 @@ class UsersController extends Controller
 
     public function index()
     {
-        $user= $this->objUser;
+        $user= $this->objUser->paginate(10);
         return view('users', compact('user'));
     }
     public function create()

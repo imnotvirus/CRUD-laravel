@@ -20,13 +20,13 @@ class BookController extends Controller
     public function index()
     {
         $book = $this->objBook->paginate(10);
-        return view('index', compact('book'));
+        return view('indexBooks', compact('book'));
     }
 
     public function create()
     {
         $users = $this->objUser->all();
-        return view('create', compact('users'));
+        return view('createBooks', compact('users'));
     }
 
 
@@ -46,14 +46,14 @@ class BookController extends Controller
     public function show($id)
     {
         $book = $this->objBook->find($id);
-        return view('show', compact('book'));
+        return view('showBooks', compact('book'));
     }
 
     public function edit($id)
     {
         $book = $this->objBook->find($id);
         $users = $this->objUser->all();
-        return view('create', compact('book', 'users'));
+        return view('createBooks', compact('book', 'users'));
     }
 
     public function update(BookRequest $request, $id)

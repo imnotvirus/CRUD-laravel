@@ -19,15 +19,27 @@
                     <th scope="col">Action</th>
                 </tr>
             </thead>
+
+            <tbody>
+                @foreach ($user as $users)
+                    <tr>
+                        <th scope="row">{{ $users->id }}</th>
+                        <td>{{ $users->name }}</td>
+                        <td>{{ $users->email}}</td>
+                        <td>
+                            <a href="{{url("users/$users->id")}}">
+                                <button class="btn btn-dark">Visualizar</button>
+                            </a>
+                            <a href="{{url("users/$users->id/edit")}}">
+                                <button class="btn btn-primary">Editar</button>
+                            </a>
+                            <a href="{{url("users/$users->id")}}" class="js-del">
+                                <button class="btn btn-danger">Deletar</button>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
         </table>
-        <tbody>
-            @foreach ($user as $users)
-                <tr>
-                    <th scope="row">{{ $users->id }}</th>
-                <td>{{$users->name}}</td>
-                <td>{{$users->email}}</td>
-                </tr>
-            @endforeach
-        </tbody>
     </div>
 @endsection
